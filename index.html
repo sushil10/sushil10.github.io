@@ -1,380 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sushil Bidhuri | Cloud & DevOps Engineer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Fira+Code:wght@400&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sushil Bidhuri - Portfolio</title>
   <style>
-    :root {
-      --primary: #2a9d8f;
-      --secondary: #264653;
-      --accent: #e9c46a;
-      --light: #f1faee;
-      --dark: #1d3557;
-    }
-
     body {
-      font-family: 'Poppins', sans-serif;
       margin: 0;
-      padding: 0;
-      color: var(--dark);
-      background: #f8f9fa url('assets/Figure.B.DevOps.jpeg') no-repeat center center fixed;
+      font-family: Arial, sans-serif;
+      background: url('devops.webp') no-repeat center center fixed;
       background-size: cover;
-      line-height: 1.6;
-    }
-
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(42, 157, 143, 0.85);
-      z-index: -1;
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-
-    a:hover {
       color: white;
-      text-decoration: none;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
     }
 
     header {
-      padding: 80px 0;
       text-align: center;
-      color: white;
-      position: relative;
+      padding: 50px 20px;
+      background: rgba(0, 0, 0, 0.6);
     }
 
-    header img.profile-pic {
-      width: 150px;
-      height: 150px;
+    header img {
+      width: 160px;
+      height: 160px;
       border-radius: 50%;
+      border: 4px solid white;
       object-fit: cover;
-      border: 5px solid white;
+    }
+
+    h1 {
+      margin-top: 20px;
+      font-size: 2.5em;
+    }
+
+    .projects {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 40px 20px;
+    }
+
+    .projects h2 {
+      text-align: center;
       margin-bottom: 20px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
 
-    header h1 {
-      font-size: 3.5rem;
-      margin: 0;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-    }
-
-    header p {
-      font-size: 1.5rem;
-      margin: 10px 0 0;
-      font-weight: 300;
-      opacity: 0.9;
-    }
-
-    section {
-      padding: 60px 0;
-      background: white;
-      margin: 40px 0;
+    .project {
+      margin: 15px 0;
+      padding: 15px;
+      border: 1px solid #ccc;
       border-radius: 8px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      background: rgba(255, 255, 255, 0.1);
     }
 
-    .section-header {
-      text-align: center;
-      margin-bottom: 40px;
+    .project a {
+      color: #00ffcc;
+      text-decoration: none;
+      font-weight: bold;
     }
 
-    h2 {
-      font-size: 2.5rem;
-      color: var(--primary);
-      position: relative;
-      display: inline-block;
-      margin-bottom: 30px;
-    }
-
-    h2:after {
-      content: '';
-      position: absolute;
-      width: 60%;
-      height: 3px;
-      background: var(--accent);
-      bottom: -10px;
-      left: 20%;
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-    }
-
-    .project-card {
-      background: white;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border: 1px solid #eee;
-    }
-
-    .project-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-    }
-
-    .project-image {
-      height: 200px;
-      background: var(--light);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .project-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .project-content {
-      padding: 25px;
-    }
-
-    .project-content h3 {
-      margin: 0 0 15px;
-      color: var(--secondary);
-      font-size: 1.5rem;
-    }
-
-    .project-content p {
-      margin: 0 0 20px;
-      color: #666;
-    }
-
-    .project-link {
-      display: inline-block;
-      padding: 8px 20px;
-      background: var(--primary);
-      color: white;
-      border-radius: 4px;
-      font-weight: 500;
-      transition: all 0.3s ease;
-    }
-
-    .project-link:hover {
-      background: var(--secondary);
-    }
-
-    .skills-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-    }
-
-    .skill-tag {
-      display: inline-block;
-      padding: 8px 20px;
-      background: var(--light);
-      color: var(--secondary);
-      border-radius: 30px;
-      font-weight: 500;
-      border: 2px solid var(--primary);
-      transition: all 0.3s ease;
-    }
-
-    .skill-tag:hover {
-      background: var(--primary);
-      color: white;
-    }
-
-    .contact-info {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-    }
-
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-
-    .contact-icon {
-      width: 50px;
-      height: 50px;
-      background: var(--light);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--primary);
-      font-size: 1.5rem;
-    }
-
-    .contact-text a {
-      color: var(--secondary);
-      font-weight: 500;
-    }
-
-    .contact-text a:hover {
-      color: var(--primary);
-    }
-
-    footer {
-      background: var(--secondary);
-      color: white;
-      padding: 30px 0;
-      text-align: center;
-    }
-
-    footer p {
-      margin: 0;
-      opacity: 0.8;
-    }
-
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 2.5rem;
-      }
-      
-      header p {
-        font-size: 1.2rem;
-      }
-      
-      h2 {
-        font-size: 2rem;
-      }
-      
-      .projects-grid {
-        grid-template-columns: 1fr;
-      }
+    .project a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <!-- Profile Picture -->
-      <img src="assets/Sushil-Bidhuri.png" alt="Sushil Bidhuri" class="profile-pic">
-      <h1>Sushil Bidhuri</h1>
-      <p>Cloud & DevOps Engineer | AWS Specialist | Infrastructure as Code</p>
-    </header>
+  <header>
+    <img src="sushil.webp" alt="Profile Picture">
+    <h1>Sushil Bidhuri</h1>
+    <p>Aspiring Cloud & DevOps Engineer</p>
+  </header>
 
-    <!-- Featured Projects Section -->
-    <section class="projects">
-      <div class="section-header">
-        <h2>Featured Projects</h2>
-      </div>
-      
-      <div class="projects-grid">
-        <div class="project-card">
-          <div class="project-image">
-            <img src="https://placehold.co/600x400" alt="Terraform infrastructure diagram showing AWS VPC architecture">
-          </div>
-          <div class="project-content">
-            <h3>Terraform AWS VPC</h3>
-            <p>Provision an AWS VPC with public & private subnets, Internet Gateway, NAT Gateway, and route tables using Terraform.</p>
-            <a href="https://github.com/sushil10/terraform-aws-vpc" class="project-link" target="_blank">View Project</a>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-image">
-            <img src="https://placehold.co/600x400" alt="AWS S3 bucket hosting architecture">
-          </div>
-          <div class="project-content">
-            <h3>AWS S3 Static Website</h3>
-            <p>Hosted a static website on AWS S3 with versioning, bucket policies, and custom index & error pages.</p>
-            <a href="https://github.com/sushil10/aws-s3-static-website" class="project-link" target="_blank">View Project</a>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-image">
-            <img src="https://placehold.co/600x400" alt="System monitoring dashboard">
-          </div>
-          <div class="project-content">
-            <h3>System Health Monitor</h3>
-            <p>Monitors system health metrics like CPU, memory, and disk usage with alerts to help maintain server reliability.</p>
-            <a href="https://github.com/sushil10/system-health-monitor" class="project-link" target="_blank">View Project</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section class="skills-section">
-      <div class="section-header">
-        <h2>Technical Skills</h2>
-      </div>
-      
-      <div class="skills-container">
-        <span class="skill-tag">AWS Architecture</span>
-        <span class="skill-tag">Terraform</span>
-        <span class="skill-tag">CI/CD Pipelines</span>
-        <span class="skill-tag">Linux Systems</span>
-        <span class="skill-tag">Kubernetes</span>
-        <span class="skill-tag">Docker</span>
-        <span class="skill-tag">Cloud Networking</span>
-        <span class="skill-tag">Git & GitHub</span>
-        <span class="skill-tag">Monitoring</span>
-        <span class="skill-tag">Automation</span>
-        <span class="skill-tag">Python</span>
-        <span class="skill-tag">Bash Scripting</span>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact">
-      <div class="section-header">
-        <h2>Get In Touch</h2>
-      </div>
-      
-      <div class="contact-info">
-        <div class="contact-item">
-          <div class="contact-icon">📧</div>
-          <div class="contact-text">
-            <p>Email</p>
-            <a href="mailto:sushil7790@gmail.com">sushil7790@gmail.com</a>
-          </div>
-        </div>
-        
-        <div class="contact-item">
-          <div class="contact-icon">🔗</div>
-          <div class="contact-text">
-            <p>LinkedIn</p>
-            <a href="https://www.linkedin.com/in/sushil-bidhuri/" target="_blank">Sushil Bidhuri</a>
-          </div>
-        </div>
-        
-        <div class="contact-item">
-          <div class="contact-icon">💻</div>
-          <div class="contact-text">
-            <p>GitHub</p>
-            <a href="https://github.com/sushil10" target="_blank">sushil10</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 Sushil Bidhuri. All rights reserved.</p>
+  <section class="projects">
+    <h2>My Projects</h2>
+    
+    <div class="project">
+      <a href="https://github.com/sushil10/aws-s3-static-website" target="_blank">
+        AWS S3 Static Website Hosting
+      </a>
     </div>
-  </footer>
+
+    <div class="project">
+      <a href="https://github.com/sushil10/system-health-monitor" target="_blank">
+        System Health Monitor
+      </a>
+    </div>
+
+    <div class="project">
+      <a href="https://github.com/sushil10/your-third-project" target="_blank">
+        Third Project
+      </a>
+    </div>
+  </section>
 </body>
 </html>
