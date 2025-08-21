@@ -19,7 +19,7 @@
       margin: 0;
       padding: 0;
       color: var(--dark);
-      background: #f8f9fa url('Figure.B.DevOps.jpeg') no-repeat center center fixed;
+      background: #f8f9fa url('assets/Figure.B.DevOps.jpeg') no-repeat center center fixed;
       background-size: cover;
       line-height: 1.6;
     }
@@ -115,19 +115,266 @@
       left: 20%;
     }
 
-    /* --- other sections unchanged (projects, skills, contact, footer) --- */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid #eee;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    }
+
+    .project-image {
+      height: 200px;
+      background: var(--light);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .project-content {
+      padding: 25px;
+    }
+
+    .project-content h3 {
+      margin: 0 0 15px;
+      color: var(--secondary);
+      font-size: 1.5rem;
+    }
+
+    .project-content p {
+      margin: 0 0 20px;
+      color: #666;
+    }
+
+    .project-link {
+      display: inline-block;
+      padding: 8px 20px;
+      background: var(--primary);
+      color: white;
+      border-radius: 4px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .project-link:hover {
+      background: var(--secondary);
+    }
+
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .skill-tag {
+      display: inline-block;
+      padding: 8px 20px;
+      background: var(--light);
+      color: var(--secondary);
+      border-radius: 30px;
+      font-weight: 500;
+      border: 2px solid var(--primary);
+      transition: all 0.3s ease;
+    }
+
+    .skill-tag:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      background: var(--light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 1.5rem;
+    }
+
+    .contact-text a {
+      color: var(--secondary);
+      font-weight: 500;
+    }
+
+    .contact-text a:hover {
+      color: var(--primary);
+    }
+
+    footer {
+      background: var(--secondary);
+      color: white;
+      padding: 30px 0;
+      text-align: center;
+    }
+
+    footer p {
+      margin: 0;
+      opacity: 0.8;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.5rem;
+      }
+      
+      header p {
+        font-size: 1.2rem;
+      }
+      
+      h2 {
+        font-size: 2rem;
+      }
+      
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <header>
       <!-- Profile Picture -->
-      <img src="Sushil Bidhuri.png" alt="Sushil Bidhuri" class="profile-pic">
+      <img src="assets/Sushil-Bidhuri.png" alt="Sushil Bidhuri" class="profile-pic">
       <h1>Sushil Bidhuri</h1>
       <p>Cloud & DevOps Engineer | AWS Specialist | Infrastructure as Code</p>
     </header>
 
-    <!-- Rest of your sections (Projects, Skills, Contact, Footer) remain same -->
+    <!-- Featured Projects Section -->
+    <section class="projects">
+      <div class="section-header">
+        <h2>Featured Projects</h2>
+      </div>
+      
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-image">
+            <img src="https://placehold.co/600x400" alt="Terraform infrastructure diagram showing AWS VPC architecture">
+          </div>
+          <div class="project-content">
+            <h3>Terraform AWS VPC</h3>
+            <p>Provision an AWS VPC with public & private subnets, Internet Gateway, NAT Gateway, and route tables using Terraform.</p>
+            <a href="https://github.com/sushil10/terraform-aws-vpc" class="project-link" target="_blank">View Project</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">
+            <img src="https://placehold.co/600x400" alt="AWS S3 bucket hosting architecture">
+          </div>
+          <div class="project-content">
+            <h3>AWS S3 Static Website</h3>
+            <p>Hosted a static website on AWS S3 with versioning, bucket policies, and custom index & error pages.</p>
+            <a href="https://github.com/sushil10/aws-s3-static-website" class="project-link" target="_blank">View Project</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">
+            <img src="https://placehold.co/600x400" alt="System monitoring dashboard">
+          </div>
+          <div class="project-content">
+            <h3>System Health Monitor</h3>
+            <p>Monitors system health metrics like CPU, memory, and disk usage with alerts to help maintain server reliability.</p>
+            <a href="https://github.com/sushil10/system-health-monitor" class="project-link" target="_blank">View Project</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills-section">
+      <div class="section-header">
+        <h2>Technical Skills</h2>
+      </div>
+      
+      <div class="skills-container">
+        <span class="skill-tag">AWS Architecture</span>
+        <span class="skill-tag">Terraform</span>
+        <span class="skill-tag">CI/CD Pipelines</span>
+        <span class="skill-tag">Linux Systems</span>
+        <span class="skill-tag">Kubernetes</span>
+        <span class="skill-tag">Docker</span>
+        <span class="skill-tag">Cloud Networking</span>
+        <span class="skill-tag">Git & GitHub</span>
+        <span class="skill-tag">Monitoring</span>
+        <span class="skill-tag">Automation</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">Bash Scripting</span>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+      <div class="section-header">
+        <h2>Get In Touch</h2>
+      </div>
+      
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon">📧</div>
+          <div class="contact-text">
+            <p>Email</p>
+            <a href="mailto:sushil7790@gmail.com">sushil7790@gmail.com</a>
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <div class="contact-icon">🔗</div>
+          <div class="contact-text">
+            <p>LinkedIn</p>
+            <a href="https://www.linkedin.com/in/sushil-bidhuri/" target="_blank">Sushil Bidhuri</a>
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <div class="contact-icon">💻</div>
+          <div class="contact-text">
+            <p>GitHub</p>
+            <a href="https://github.com/sushil10" target="_blank">sushil10</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Sushil Bidhuri. All rights reserved.</p>
+    </div>
+  </footer>
 </body>
 </html>
